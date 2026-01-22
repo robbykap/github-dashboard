@@ -83,6 +83,8 @@ export const authConfig: NextAuthConfig = {
   session: {
     strategy: 'jwt',
   },
+  // Trust the host header in production (required for reverse proxies like Amplify)
+  trustHost: true,
 };
 
 export const {

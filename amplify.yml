@@ -6,11 +6,19 @@ frontend:
         - npm ci
     build:
       commands:
+        # Environment variables are set in Amplify Console
+        - echo "NEXTAUTH_URL=$NEXTAUTH_URL"
         - npm run build
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
+    # Include standalone build files
+    secondaryArtifacts:
+      standalone:
+        baseDirectory: .next/standalone
+        files:
+          - '**/*'
   cache:
     paths:
       - node_modules/**/*
