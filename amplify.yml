@@ -7,7 +7,6 @@ frontend:
     build:
       commands:
         # Environment variables are set in Amplify Console
-        - echo "NEXTAUTH_URL=$NEXTAUTH_URL"
         - npm run build
   artifacts:
     baseDirectory: .next
